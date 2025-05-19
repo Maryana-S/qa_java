@@ -2,13 +2,10 @@ package ru.yandex.practicum;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-@RunWith(MockitoJUnitRunner.class)
 public class FelineTest {
 
     Feline feline;
@@ -20,9 +17,7 @@ public class FelineTest {
 
     @Test
     public void eatMeatNoParamReturnListOfFoodTest() throws Exception {
-        Feline felineSpy = Mockito.spy(feline);
-        felineSpy.eatMeat();
-        Mockito.verify(felineSpy, Mockito.times(1)).getFood("Хищник");
+        assertEquals("Метод eatMeat() вернул значение отличное от ожидаемого", List.of("Животные", "Птицы", "Рыба"), feline.eatMeat());
     }
 
     @Test
@@ -39,9 +34,7 @@ public class FelineTest {
 
     @Test
     public void getKittensNoParamReturnOneKittenTest() {
-        Feline felineSpy = Mockito.spy(feline);
-        felineSpy.getKittens();
-        Mockito.verify(felineSpy, Mockito.times(1)).getKittens(1);
+        assertEquals("Метод getKittens() вернул значение отличное от 1", 1, feline.getKittens());
     }
 
 }

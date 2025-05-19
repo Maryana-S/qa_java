@@ -49,4 +49,5 @@ public class LionTest {
         }
         throw new AssertionError("Не возникло ожидаемое исключение");
     }
+
 }
