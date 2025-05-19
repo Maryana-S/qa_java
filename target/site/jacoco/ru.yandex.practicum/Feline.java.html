@@ -2,31 +2,24 @@
 
 import java.util.List;
 
-<span class="fc" id="L5">public class Feline extends Animal implements FelineInterface, Predator {</span>
-
-    @Override
-    public List&lt;String&gt; getFood(String animalKind) throws Exception {
-<span class="fc" id="L9">        return super.getFood(animalKind);</span>
-    }
+<span class="fc" id="L5">public class Feline extends Animal implements Predator {</span>
 
     @Override
     public List&lt;String&gt; eatMeat() throws Exception {
-<span class="fc" id="L14">        return getFood(&quot;Хищник&quot;);</span>
+<span class="fc" id="L9">        return getFood(&quot;Хищник&quot;);</span>
     }
 
     @Override
     public String getFamily() {
-<span class="fc" id="L19">        return &quot;Кошачьи&quot;;</span>
+<span class="fc" id="L14">        return &quot;Кошачьи&quot;;</span>
     }
 
-    @Override
     public int getKittens() {
-<span class="fc" id="L24">        return getKittens(1);</span>
+<span class="fc" id="L18">        return getKittens(1);</span>
     }
 
-    @Override
     public int getKittens(int kittensCount) {
-<span class="fc" id="L29">        return kittensCount;</span>
+<span class="fc" id="L22">        return kittensCount;</span>
     }
 
 }

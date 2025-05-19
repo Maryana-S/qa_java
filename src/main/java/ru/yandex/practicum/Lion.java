@@ -6,9 +6,9 @@ public class Lion {
 
     boolean hasMane;
 
-    private FelineInterface feline;
+    private Feline feline;
 
-    public Lion(String sex, FelineInterface feline) throws Exception {
+    public Lion(String sex, Feline feline) throws Exception {
         if ("Самец".equals(sex)) {
             hasMane = true;
         } else if ("Самка".equals(sex)) {

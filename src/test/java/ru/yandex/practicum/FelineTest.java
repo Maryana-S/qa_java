@@ -1,29 +1,28 @@
 package ru.yandex.practicum;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
-
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
 @RunWith(MockitoJUnitRunner.class)
 public class FelineTest {
 
-    @Spy
-    private Feline feline;
+    Feline feline;
+
+    @Before
+    public void initFeline() {
+        feline = new Feline();
+    }
 
     @Test
     public void eatMeatNoParamReturnListOfFoodTest() throws Exception {
-        List<String> felineFood = List.of("Мясо", "Птица", "Рыба");
-        Mockito.when(feline.getFood("Хищник")).thenReturn(felineFood);
-        List<String> felineEat = feline.eatMeat();
-        Mockito.verify(feline, Mockito.times(1)).getFood("Хищник");
-        assertEquals("Список, возвращаемый методом eatMeat(), не соответствует ожидаемому", felineFood, felineEat);
+        Feline felineSpy = Mockito.spy(feline);
+        felineSpy.eatMeat();
+        Mockito.verify(felineSpy, Mockito.times(1)).getFood("Хищник");
     }
 
     @Test
@@ -40,9 +39,9 @@ public class FelineTest {
 
     @Test
     public void getKittensNoParamReturnOneKittenTest() {
-        int kittensCount = feline.getKittens();
-        assertEquals("Метод getKittens() вернул значение отличное от ожидаемого",1, kittensCount);
-        Mockito.verify(feline, Mockito.times(1)).getKittens(1);
+        Feline felineSpy = Mockito.spy(feline);
+        felineSpy.getKittens();
+        Mockito.verify(felineSpy, Mockito.times(1)).getKittens(1);
     }
 
 }

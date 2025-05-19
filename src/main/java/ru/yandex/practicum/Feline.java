@@ -2,12 +2,7 @@ package ru.yandex.practicum;
 
 import java.util.List;
 
-public class Feline extends Animal implements FelineInterface, Predator {
-
-    @Override
-    public List<String> getFood(String animalKind) throws Exception {
-        return super.getFood(animalKind);
-    }
+public class Feline extends Animal implements Predator {
 
     @Override
     public List<String> eatMeat() throws Exception {
@@ -19,12 +14,10 @@ public class Feline extends Animal implements FelineInterface, Predator {
         return "Кошачьи";
     }
 
-    @Override
     public int getKittens() {
         return getKittens(1);
     }
 
-    @Override
     public int getKittens(int kittensCount) {
         return kittensCount;
     }
